@@ -2,10 +2,10 @@
 
 This repository is a small, repeatable lab for learning two things at once:
 
-1. how GitLab merge requests, branches, webhooks, permissions, and CI fit together; and
-2. how CodeRabbit reviews code, explains findings, remembers team preferences, and proposes changes.
+1. How GitLab merge requests, branches, webhooks, permissions, and CI fit together; and
+2. How CodeRabbit reviews code, explains findings, remembers team preferences, and proposes changes.
 
-The eventual output is also a potential blog series: each lab gives you a controlled experiment, an observation checklist, and evidence you can turn into a post about using CodeRabbit with a self-managed GitLab.
+Each lab gives you a controlled experiment, an observation checklist, you can used with a with a self-managed GitLab instance.
 
 ## The short version
 
