@@ -1,0 +1,22 @@
+# Copy this to .coderabbit.yaml in Lab 4, then change one setting at a time.
+language: en-US
+tone_instructions: "Be concise and direct. Explain the risk, then the fix."
+reviews:
+  profile: assertive
+  high_level_summary: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "**/*.sh"
+      instructions: |
+        Require set -euo pipefail. Flag unquoted variables, destructive commands
+        using unvalidated input, and missing error handling after cd.
+    - path: "**/*.py"
+      instructions: |
+        Require type hints on public functions and context managers for files.
+        Flag broad except clauses.
+  path_filters:
+    - "!**/*.lock"
+    - "!**/vendor/**"
