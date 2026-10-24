@@ -1,0 +1,75 @@
+Issue summary:
+
+Git push failed locally before connecting to GitLab:
+
+Bad owner or permissions on /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf
+fatal: Could not read from remote repository.
+
+The GitLab remote uses SSH:
+
+git@gitlab.ae35.dev:ae35/ae35.git
+
+This is not GitLab-specific. Sibling GitHub repositories also use SSH, and testing one produces the same error.
+
+The problematic file is:
+
+/etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf
+
+It is globally included by:
+
+/etc/ssh/ssh_config
+Include /etc/ssh/ssh_config.d/*.conf
+
+The file is provided by the systemd package and configures systemd-ssh-proxy for special local targets such as:
+
+.host
+machine/*
+unix/*
+vsock/*
+
+It does not match GitHub or GitLab, but OpenSSH validates every included configuration file before connecting.
+
+Timing evidence:
+
+- The file/symlink was recreated around 2026-10-10 11:50:05 EDT.
+- dpkg logged a systemd package unpack/reinstall at that exact time.
+- Earlier that day, systemd changed from version 255.4-1ubuntu8.17 to 259.5-0ubuntu3.4.
+- Many packages transitioned from Ubuntu 24.04/noble versions to Ubuntu 26.04/resolute versions.
+- This strongly suggests the problem appeared during an OS release upgrade or related system provisioning operation.
+
+Ownership behavior is inconsistent:
+
+As root through sudo, the files appear correct:
+
+lrwxrwxrwx root:root /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf
+-rw-r--r-- root:root /usr/lib/systemd/ssh_config.d/20-systemd-ssh-proxy.conf
+
+However, as the normal user running Git/SSH, they appear as:
+
+nobody:nogroup
+
+and OpenSSH still rejects them.
+
+This suggests an ID-mapped/rootless/user-namespace or filesystem ownership mapping issue. The files may be root-owned in the host/root context but appear as nobody:nogroup in the user context where Git runs.
+
+Evidence:
+
+sudo ssh -G git@gitlab.ae35.dev
+succeeds.
+
+Normal:
+ssh -G git@gitlab.ae35.dev
+fails with the ownership error.
+
+A normal apt update would not create or modify this file. The likely cause was the OS upgrade or package unpack/reinstallation.
+
+Required fix:
+
+1. Make sure the symlink and target are visible as root:root to the normal user running SSH.
+2. Ensure parent directories are root-owned and mode 0755.
+3. Verify as the normal user:
+
+   ssh -G git@gitlab.ae35.dev
+
+4. If the UID mapping cannot be corrected, disable/remove this systemd SSH include or use an SSH configuration that bypasses the global include.
+5. After SSH parsing works, separately verify DNS/network connectivity to gitlab.ae35.dev.
