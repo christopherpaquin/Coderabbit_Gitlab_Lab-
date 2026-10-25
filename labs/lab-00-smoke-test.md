@@ -148,7 +148,11 @@ Do not use the GitHub URL as the CodeRabbit project URL. CodeRabbit must be conn
 
 > Screenshot 0.3 — CodeRabbit login page showing the GitLab or Self-Hosted GitLab choice.
 
-> Screenshot 0.4 — CodeRabbit showing coderabbit-gitlab-lab-clone as an available or installed project.
+> Screenshot 0.4 — CodeRabbit Review settings for the connected coderabbit-gitlab-lab-clone project.
+
+![Screenshot 0.4 — CodeRabbit repository review settings](../assets/screenshots/lab-00-04-coderabbit-repository-settings.png)
+
+This screen confirms that coderabbit-gitlab-lab-clone is already connected. The breadcrumb begins with **Connected repositories**, and the project is selected in the repository list. To add another project, select **Connected repositories** in the left navigation, then use the add or install control shown there. Do not look for the add-repository control inside Review settings; this page configures a repository after it has been connected.
 
 > Screenshot 0.5 — Self-managed GitLab onboarding form showing the instance URL, with tokens and secrets hidden.
 

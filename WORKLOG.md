@@ -62,3 +62,6 @@
 
 ## 2026-10-25 19:08
 **Task:** Add the learner-provided Lab 0 screenshot at checkpoint 0.2.\n**Decision:** Store the working-project screenshot at assets/screenshots/lab-00-02-working-project.png and embed it below the 0.2 placeholder.\n**Why:** The image demonstrates the learner-owned GitLab project and its imported lab contents, making the separation from the GitHub template concrete.\n**Progress:** in-progress; screenshot and documentation synchronized, validation and commits remain.
+
+## 2026-10-25 19:14
+**Task:** Add Lab 0 screenshot 0.4 and clarify CodeRabbit repository installation versus review settings.\n**Decision:** Treat the supplied CodeRabbit Review settings screen as evidence that coderabbit-gitlab-lab-clone is already connected; direct learners to Connected repositories for adding projects and Review settings for configuring connected projects.\n**Why:** The screenshot shows the repository selected and the Connected repositories breadcrumb, but the previous lab wording did not distinguish installation from post-installation configuration.\n**Progress:** in-progress; screenshot and documentation synchronized, validation and commits remain.
