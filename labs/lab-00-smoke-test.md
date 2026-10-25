@@ -287,6 +287,10 @@ Wait a few minutes, then inspect the MR:
 
 > Screenshot 0.10 — GitLab MR overview showing the source branch, target branch, and title.
 
+![Screenshot 0.10 — GitLab merge request overview with CodeRabbit summary](../assets/screenshots/lab-00-10-merge-request-overview.png)
+
+This view confirms that the merge request is open from `lab0-smoke` into `main`. It also shows the CodeRabbit-generated summary, the pipeline result, and GitLab's current merge status. In this example, the MR is **Ready to merge**, but leave it open until you finish recording the smoke-test observations.
+
 > Screenshot 0.11 — CodeRabbit's first response on the smoke-test MR.
 
 > Screenshot 0.12 — GitLab webhook delivery showing the event succeeded, if applicable.
