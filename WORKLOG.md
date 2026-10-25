@@ -29,3 +29,15 @@
 **Decision:** Use compact factual badges, an at-a-glance table, collapsible contents, and focused callouts while preserving the teaching content.
 **Why:** A long lab guide should be easy to scan in both GitHub and GitLab interfaces without adding decorative or unsupported claims.
 **Progress:** in-progress; README updated, validation and commit/push remain.
+
+## 2026-10-25 12:54
+**Task:** Split the CodeRabbit/GitLab lab guide into navigable sub-pages in the GitHub copy.
+**Decision:** Keep the GitHub README as the overview and add numbered lab pages with exact commands, GitLab UI steps, screenshot checkpoints, cleanup, and navigation.
+**Why:** The public copy needs to be independently usable and ready to receive screenshots as the learner progresses.
+**Progress:** in-progress; pages are synchronized, validation and commit/push remain.
+
+## 2026-10-25 12:55
+**Task:** Make the public lab procedures executable rather than conceptual.
+**Decision:** Added copyable pre-merge configuration, a minimal GitLab CI pipeline, and a disposable security sample with exact commands.
+**Why:** The GitHub copy must let a learner follow each lab without guessing what file to create or what UI state to reach.
+**Progress:** in-progress; detailed pages synchronized, final validation and commit/push remain.
