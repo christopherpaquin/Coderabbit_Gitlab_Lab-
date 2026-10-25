@@ -42,7 +42,7 @@ git push -u origin lab4-configuration
 Open an MR from lab4-configuration into main:
 
 1. Open **Code > Merge requests**.
-2. Select **New merge request**.
+2. Select **Create merge request**.
 3. Choose source branch lab4-configuration and target branch main.
 4. Select **Compare branches and continue**.
 5. Use the title **test: add CodeRabbit review configuration**.

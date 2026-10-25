@@ -63,7 +63,7 @@ git push -u origin lab8-security
 ## 8.4 Open and inspect the MR
 
 1. Open **Code > Merge requests**.
-2. Select **New merge request**.
+2. Select **Create merge request**.
 3. Choose source lab8-security and target main.
 4. Select **Compare branches and continue**.
 5. Use the title **test: exercise security findings**.

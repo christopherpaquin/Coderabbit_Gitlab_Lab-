@@ -54,7 +54,7 @@ git push -u origin lab10-real-world
 
 1. Open the repository in GitLab.
 2. Select **Code > Merge requests**.
-3. Select **New merge request**.
+3. Select **Create merge request**.
 4. Choose source lab10-real-world and target main.
 5. Select **Compare branches and continue**.
 6. Write a description that explains intent, testing, and risk.

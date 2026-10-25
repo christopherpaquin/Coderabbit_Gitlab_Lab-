@@ -66,7 +66,7 @@ git push -u origin lab1-planted-bugs
 
 1. Open the GitLab project.
 2. Select **Code > Merge requests**.
-3. Select **New merge request**.
+3. Select **Create merge request**.
 4. Select source branch lab1-planted-bugs.
 5. Select target branch main.
 6. Select **Compare branches and continue**.
