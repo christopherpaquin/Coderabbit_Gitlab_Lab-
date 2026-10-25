@@ -57,6 +57,10 @@ This screenshot shows the blank-project path. If you are importing the GitHub te
 
 > Screenshot 0.2 — The new GitLab project showing the imported README, labs directory, and samples directory.
 
+![Screenshot 0.2 — GitLab working project](../assets/screenshots/lab-00-02-working-project.png)
+
+This confirms that the GitLab working project exists separately from the GitHub template and contains the lab files before CodeRabbit is connected.
+
 ## 0.4 Fallback: copy the GitHub template with Git
 
 Use this only if GitLab's import screen cannot copy the repository.

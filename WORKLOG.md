@@ -59,3 +59,6 @@
 
 ## 2026-10-25 19:08
 **Task:** Add the learner-provided Lab 0 screenshot at checkpoint 0.1.\n**Decision:** Store the GitLab Create blank project screenshot at assets/screenshots/lab-00-01-create-project.png and embed it directly below the 0.1 placeholder in Lab 0.\n**Why:** The image documents the exact project-creation screen and clarifies the blank-project path while leaving the import path available for readers using GitLab project import.\n**Progress:** in-progress; screenshot and documentation synchronized, validation and commits remain.
+
+## 2026-10-25 19:08
+**Task:** Add the learner-provided Lab 0 screenshot at checkpoint 0.2.\n**Decision:** Store the working-project screenshot at assets/screenshots/lab-00-02-working-project.png and embed it below the 0.2 placeholder.\n**Why:** The image demonstrates the learner-owned GitLab project and its imported lab contents, making the separation from the GitHub template concrete.\n**Progress:** in-progress; screenshot and documentation synchronized, validation and commits remain.
