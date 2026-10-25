@@ -162,7 +162,13 @@ This screen confirms that coderabbit-gitlab-lab-clone is already connected. The 
 
 This is not the completed state. Select the repository checkbox and choose **Sync Repositories**. Lab 0 is complete only after the status reads **Installed**.
 
-> Screenshot 0.6 — GitLab project settings or webhook page showing the CodeRabbit connection.
+> Screenshot 0.6 — CodeRabbit confirmation dialog showing that coderabbit-gitlab-lab-clone will be installed.
+
+![Screenshot 0.6 — Confirm CodeRabbit installation](../assets/screenshots/lab-00-06-confirm-install.png)
+
+Select **Install** in this dialog. This is the action that changes the repository from visible to installed. Wait for the status in Connected repositories to change to **Installed**.
+
+> Screenshot 0.7 — GitLab project settings or webhook page showing the CodeRabbit connection.
 
 ## 0.6 Clone the working project locally
 
@@ -201,7 +207,7 @@ git pull --ff-only
 
 Expected result: the prompt is inside coderabbit-gitlab-lab-clone, the branch is main, the working tree is clean, and origin points to GitLab.
 
-> Screenshot 0.7 — Terminal showing the local directory, main branch, clean status, and GitLab remote.
+> Screenshot 0.8 — Terminal showing the local directory, main branch, clean status, and GitLab remote.
 
 ## 0.7 Create the smoke-test branch
 
@@ -257,7 +263,7 @@ git push -u origin lab0-smoke
 
 In GitHub language, this is opening a PR from lab0-smoke into main.
 
-> Screenshot 0.8 — GitLab MR creation screen showing the project, source branch, target branch, title, and description.
+> Screenshot 0.9 — GitLab MR creation screen showing the project, source branch, target branch, title, and description.
 
 ## 0.9 Verify CodeRabbit
 
@@ -269,11 +275,11 @@ Wait a few minutes, then inspect the MR:
 4. Check the recent delivery for the MR event.
 5. Record the time from the push to the first CodeRabbit response.
 
-> Screenshot 0.9 — GitLab MR overview showing the source branch, target branch, and title.
+> Screenshot 0.10 — GitLab MR overview showing the source branch, target branch, and title.
 
-> Screenshot 0.10 — CodeRabbit's first response on the smoke-test MR.
+> Screenshot 0.11 — CodeRabbit's first response on the smoke-test MR.
 
-> Screenshot 0.11 — GitLab webhook delivery showing the event succeeded, if applicable.
+> Screenshot 0.12 — GitLab webhook delivery showing the event succeeded, if applicable.
 
 ## 0.10 Interpret the result
 
