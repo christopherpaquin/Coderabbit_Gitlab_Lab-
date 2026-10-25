@@ -53,3 +53,6 @@
 **Decision:** Lab 0 now creates coderabbit-gitlab-lab-clone, installs CodeRabbit there, clones it locally, verifies the GitLab remote, and runs the smoke-test MR there. Every later lab has a working-directory preflight.
 **Why:** The public instructions must distinguish the GitHub source repository from the learner workspace where CodeRabbit experiments occur.
 **Progress:** in-progress; documentation synchronized, validation and commits remain.
+
+## 2026-10-25 19:06
+**Task:** Clarify exactly where and how learners install CodeRabbit.\n**Decision:** Lab 0 now distinguishes the GitHub template, the GitLab working project, and the local clone; it gives separate GitLab.com and self-managed onboarding paths and uses the public HTTPS URL for CodeRabbit while retaining the LAN SSH remote for Git operations.\n**Why:** The previous instruction did not tell the learner which project to connect, which URL to enter, or how self-managed onboarding relates to the Git remote.\n**Progress:** in-progress; clarified Lab 0 synchronized, validation and commits remain.

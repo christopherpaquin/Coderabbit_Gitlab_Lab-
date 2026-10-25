@@ -89,21 +89,62 @@ git push -u origin main
 
 ## 0.5 Install CodeRabbit on the working project
 
-1. Open the CodeRabbit application.
-2. Choose the GitLab or self-managed GitLab connection that matches your hosting.
-3. Provide the public HTTPS URL of your GitLab instance when CodeRabbit asks for it.
-4. Select the GitLab project named coderabbit-gitlab-lab-clone.
-5. Complete the required OAuth, bot-user, token, or webhook setup shown by your account.
-6. Grant only the project access required by the current CodeRabbit onboarding.
-7. Return to GitLab and open the project settings or webhook page.
-8. Confirm the CodeRabbit integration is installed.
-9. If self-managed GitLab is private, test the public HTTPS URL from outside your private network.
+This is the step that connects CodeRabbit to the GitLab project. You are not installing CodeRabbit into the GitHub template, and you are not installing it into the local directory. You are authorizing CodeRabbit to review the GitLab project named coderabbit-gitlab-lab-clone.
+
+Use the path that matches your GitLab hosting.
+
+### GitLab.com
+
+1. Open https://app.coderabbit.ai in your browser.
+2. Select **Log in with GitLab** or the GitLab connection offered on the sign-in page.
+3. Sign in to the GitLab.com account that owns or can administer coderabbit-gitlab-lab-clone.
+4. Approve the requested GitLab authorization.
+5. In CodeRabbit, open the repository or organization installation screen.
+6. Find coderabbit-gitlab-lab-clone in the GitLab project list.
+7. Select **Install**, **Connect**, or the equivalent button shown by your account.
+8. Confirm that the project is enabled for reviews.
+
+### Self-managed GitLab
+
+CodeRabbit's current self-managed onboarding starts from the CodeRabbit login page and asks for the public HTTPS URL of the GitLab instance.
+
+1. Open https://app.coderabbit.ai.
+2. Select **Self-Hosted GitLab**.
+3. Enter the public HTTPS URL of the GitLab web application. For the author's setup this is https://gitlab.ae35.dev. Do not enter the LAN-only SSH hostname gitlab.lab here.
+4. Select **Continue**.
+5. Choose **Automated onboarding** if you have GitLab instance-admin access and want CodeRabbit to create/configure its bot user and integration.
+6. Choose **Manual onboarding** if you do not want to give CodeRabbit an administrator token or need to configure the integration yourself.
+
+For automated onboarding, follow the form to provide the one-time GitLab administrator access token requested by CodeRabbit. This token configures the self-managed instance; it does not automatically mean every project is enabled. After onboarding, install CodeRabbit on coderabbit-gitlab-lab-clone through the repository-installation screen.
+
+For manual onboarding, the current CodeRabbit documentation requires a dedicated CodeRabbit GitLab user, that user's access token, and a GitLab OAuth application. The recommended OAuth scopes are api, read_user, and email/openid as shown by the current CodeRabbit form; the callback URL is https://app.coderabbit.ai/login. Do not put any token or client secret in this repository or in a screenshot.
+
+After the self-managed onboarding form succeeds:
+
+1. Open the CodeRabbit repository-installation screen.
+2. Select coderabbit-gitlab-lab-clone.
+3. Select **Install** or **Connect**.
+4. Return to the GitLab project.
+5. Open **Settings > Webhooks**, or the integration page used by your GitLab version.
+6. Confirm that a CodeRabbit webhook exists or that the CodeRabbit integration reports the project as connected.
+7. If the project is private, test https://gitlab.ae35.dev from a network outside your LAN.
+
+For a self-managed installation, CodeRabbit must be able to reach the GitLab web/API endpoint over HTTPS. Your local Git remote can still use gitlab.lab over SSH; those are separate connections:
+
+~~~text
+Git commands:       workstation --SSH--> gitlab.lab
+CodeRabbit review:  CodeRabbit --HTTPS--> https://gitlab.ae35.dev
+~~~
 
 Do not use the GitHub URL as the CodeRabbit project URL. CodeRabbit must be connected to the GitLab working project.
 
-> Screenshot 0.3 — CodeRabbit showing coderabbit-gitlab-lab-clone as an installed GitLab project.
+> Screenshot 0.3 — CodeRabbit login page showing the GitLab or Self-Hosted GitLab choice.
 
-> Screenshot 0.4 — GitLab integration or webhook configuration for coderabbit-gitlab-lab-clone.
+> Screenshot 0.4 — CodeRabbit showing coderabbit-gitlab-lab-clone as an available or installed project.
+
+> Screenshot 0.5 — Self-managed GitLab onboarding form showing the instance URL, with tokens and secrets hidden.
+
+> Screenshot 0.6 — GitLab project settings or webhook page showing the CodeRabbit connection.
 
 ## 0.6 Clone the working project locally
 
@@ -142,7 +183,7 @@ git pull --ff-only
 
 Expected result: the prompt is inside coderabbit-gitlab-lab-clone, the branch is main, the working tree is clean, and origin points to GitLab.
 
-> Screenshot 0.5 — Terminal showing the local directory, main branch, clean status, and GitLab remote.
+> Screenshot 0.7 — Terminal showing the local directory, main branch, clean status, and GitLab remote.
 
 ## 0.7 Create the smoke-test branch
 
@@ -198,7 +239,7 @@ git push -u origin lab0-smoke
 
 In GitHub language, this is opening a PR from lab0-smoke into main.
 
-> Screenshot 0.6 — GitLab MR creation screen showing the project, source branch, target branch, title, and description.
+> Screenshot 0.8 — GitLab MR creation screen showing the project, source branch, target branch, title, and description.
 
 ## 0.9 Verify CodeRabbit
 
@@ -210,11 +251,11 @@ Wait a few minutes, then inspect the MR:
 4. Check the recent delivery for the MR event.
 5. Record the time from the push to the first CodeRabbit response.
 
-> Screenshot 0.7 — GitLab MR overview showing the source branch, target branch, and title.
+> Screenshot 0.9 — GitLab MR overview showing the source branch, target branch, and title.
 
-> Screenshot 0.8 — CodeRabbit's first response on the smoke-test MR.
+> Screenshot 0.10 — CodeRabbit's first response on the smoke-test MR.
 
-> Screenshot 0.9 — GitLab webhook delivery showing the event succeeded, if applicable.
+> Screenshot 0.11 — GitLab webhook delivery showing the event succeeded, if applicable.
 
 ## 0.10 Interpret the result
 
