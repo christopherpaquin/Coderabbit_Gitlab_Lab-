@@ -17,3 +17,9 @@
 **Decision:** Kept the LAN hostname as environment-specific setup context, but separated it from the public blog guidance; kept planted warnings out of the code under review so the baseline measures CodeRabbit more honestly.
 **Why:** The lab should teach review judgment rather than pre-label every defect, while still warning users not to execute the intentionally unsafe patch. The answer key now scores the dropped destination/relative-path behavior explicitly.
 **Progress:** complete; final pre-commit, diff, patch-apply, syntax, and detect-secrets checks passed after the last documentation and patch edits.
+
+## 2026-10-25 12:43
+**Task:** Apply the provider-neutral README redesign in the publishable GitHub clone.
+**Decision:** Keep the GitHub clone synchronized with the LAN checkout at the README level while retaining the GitHub remote for publication.
+**Why:** Readers should receive the same teaching material regardless of whether they start from the GitHub copy or the local GitLab copy.
+**Progress:** in-progress; README updated, validation and commit/push remain.

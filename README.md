@@ -1,88 +1,157 @@
 # CodeRabbit + GitLab learning lab
 
-This repository is a small, repeatable lab for learning two things at once:
+This repository is a hands-on course for learning two related skills:
 
-1. How GitLab merge requests, branches, webhooks, permissions, and CI fit together; and
-2. How CodeRabbit reviews code, explains findings, remembers team preferences, and proposes changes.
+1. how GitLab organizes source code, branches, merge requests, issues, webhooks, and pipelines; and
+2. how CodeRabbit uses artificial intelligence (AI) to review code, explain risks, learn team preferences, and help with software-development tasks.
 
-Each lab gives you a controlled experiment, an observation checklist, you can used with a with a self-managed GitLab instance.
+The lab is written especially for people who are comfortable with GitHub but new to GitLab. It also gives you a controlled way to evaluate CodeRabbit before trusting it on a real project.
 
-## The short version
+## What you will learn
 
-You create a branch, make a deliberately small change, push it to the local GitLab, and open a merge request (MR). CodeRabbit reviews the MR diff and posts a walkthrough plus findings as `@coderabbitai`. You inspect whether the review is accurate, reply to it, change the code or configuration, push again, and compare the next review.
+By the end, you should be able to:
 
-CodeRabbit is the reviewer under test; GitLab is the system under test. Your job is not to make the sample code production-ready immediately. Your job is to measure what the tool notices, what it misses, how much noise it creates, and whether its suggested fixes are safe to accept.
+- create a branch and open a GitLab merge request (MR);
+- understand that an MR is GitLab's name for what GitHub calls a pull request (PR);
+- connect CodeRabbit to a GitLab repository;
+- read a CodeRabbit walkthrough, inline finding, severity, and merge-risk signal;
+- ask CodeRabbit questions in an MR discussion;
+- compare an incremental review with a full review;
+- influence reviews with configuration, coding guidelines, and learnings;
+- evaluate suggested fixes and generated tests instead of accepting them blindly;
+- compare a GitLab MR review with a local CodeRabbit command-line interface (CLI) review; and
+- measure signal, noise, speed, and safety well enough to write an evidence-based blog post.
 
-## What CodeRabbit is doing
+The sample code is intentionally small. The point is not to build an application. The point is to create changes whose risks you understand, then see what CodeRabbit notices, misses, misunderstands, or proposes to change.
 
-For an MR, CodeRabbit generally combines the diff with repository context, configuration, coding guidelines, and available static-analysis results. It then posts review output back to GitLab. Depending on the connected workspace and plan, that output may include:
+## A GitHub user's translation guide
 
-- a high-level walkthrough and change summary;
-- inline findings with severity and suggested fixes;
-- pre-merge checks and merge-risk signals;
-- replies to questions in MR discussions;
-- incremental reviews after new commits; and
-- finishing actions such as fixing comments or generating tests.
+GitLab and GitHub use different names for many familiar ideas.
 
-Treat all of these as hypotheses to evaluate. Product features, limits, command names, and plan entitlements can change, so the official documentation is the source of truth:
+| GitLab term | GitHub equivalent | Meaning |
+| --- | --- | --- |
+| project | repository | The hosted source-code workspace |
+| merge request (MR) | pull request (PR) | A proposed change from one branch into another |
+| default branch | default branch | Usually `main`; the normal integration target |
+| issue | issue | A request, bug, or piece of planned work |
+| pipeline | GitHub Actions workflow | Automated jobs that run after a push or MR/PR event |
+| runner | GitHub Actions runner | A machine that executes pipeline/workflow jobs |
+| project member | repository collaborator | A person or bot with access to the project |
+| protected branch | branch protection rule | Rules controlling who can push, merge, or approve |
+| merge | merge | Integrating the source branch into the target branch |
+| webhook | webhook | An HTTP callback that tells another service an event occurred |
+| GitLab CI/CD | GitHub Actions | The platform's built-in automation system |
 
-- [Self-managed GitLab](https://docs.coderabbit.ai/platforms/self-hosted-gitlab)
+When this guide says “open an MR,” GitHub users should read that as “open a PR.” The workflow is familiar: create a branch, make a commit, push it, open a review request, discuss feedback, update the branch, and merge when the change is ready. The user interface and permission names differ, so learning those differences is part of this lab.
+
+## What CodeRabbit does
+
+Think of CodeRabbit as an AI review partner that sits beside your normal human review process. It is not the owner of your repository, not a replacement for tests, and not a final approver. Its value is that it can examine a change quickly and consistently, then give you another perspective before the code is merged.
+
+For a repository review, CodeRabbit can use several kinds of context:
+
+- the change itself: the diff, changed files, and surrounding code;
+- repository instructions: a `.coderabbit.yaml` file, `AGENTS.md`, `CLAUDE.md`, or other supported guidance;
+- earlier conversations and stored learnings about review preferences;
+- linked issues and the relationship between the requested work and the actual change;
+- available pipeline results; and
+- static-analysis or security-tool output, when enabled for your plan and repository.
+
+Depending on the CodeRabbit product surface, plan, workspace, and Git provider, you may see some or all of these capabilities:
+
+### Explain a change
+
+A walkthrough summarizes the purpose of an MR and may describe changes by file or by flow. This is useful for checking whether the reviewer understood intent rather than merely repeating filenames.
+
+### Find problems
+
+Inline comments can point to security risks, correctness bugs, reliability problems, maintainability issues, missing tests, or lower-priority style concerns. A finding may include severity, reasoning, tool attribution, and a suggested code change.
+
+### Review the review
+
+You can ask questions in the MR discussion, request an explanation or sequence diagram, disagree with a suggestion, and ask CodeRabbit to reconsider a finding. This is an important part of the lab: you are learning how to judge an AI review, not just how to receive one.
+
+### Remember preferences
+
+Natural-language conversations can create “learnings”: stored review preferences associated with a repository or organization. For example, you might teach CodeRabbit that this project requires strict Bash mode or prefers a particular error-handling pattern. Test whether a learning appears in a later review; do not assume that one agreeable reply means it was persisted.
+
+### Apply repository rules
+
+A version-controlled YAML configuration can set review tone, profile, path-specific instructions, path filters, automatic-review behavior, and selected tools. Coding-guideline files such as `AGENTS.md` or `CLAUDE.md` can provide normal project rules that CodeRabbit reads as repository context.
+
+### Check readiness
+
+Pre-merge checks can assess things such as the MR title, description, docstrings, linked-issue fit, and custom natural-language requirements. These are quality signals, not a substitute for a human approval policy or a passing test suite.
+
+### Review local work
+
+The CodeRabbit CLI can review local Git changes before you push them. This creates a second workflow: use CodeRabbit early while coding, then use the GitLab MR review to evaluate the complete proposed change and its collaboration context.
+
+### Help with follow-up work
+
+Depending on your plan and integration, CodeRabbit may offer actions such as fixing review comments, generating docstrings or unit tests, simplifying code, or resolving a merge conflict. Treat generated commits as untrusted contributions: inspect the diff, run tests, and decide whether the result is actually correct.
+
+Capabilities and limits change. The official documentation is the authority for your account:
+
+- [Self-managed GitLab integration](https://docs.coderabbit.ai/platforms/self-hosted-gitlab)
 - [Review commands](https://docs.coderabbit.ai/reference/review-commands)
 - [YAML configuration](https://docs.coderabbit.ai/getting-started/yaml-configuration)
 - [Code guidelines](https://docs.coderabbit.ai/knowledge-base/code-guidelines)
+- [Learnings](https://docs.coderabbit.ai/knowledge-base/learnings)
 - [Pre-merge checks](https://docs.coderabbit.ai/pr-reviews/pre-merge-checks)
 - [CLI](https://docs.coderabbit.ai/cli)
 - [Plans and pricing](https://docs.coderabbit.ai/management/plans)
 
-## Environment: local GitLab plus a Cloudflare Tunnel
+## How CodeRabbit connects to GitLab
 
-This checkout currently uses the LAN GitLab remote:
+CodeRabbit is a cloud service, so it must be able to communicate with the GitLab installation that hosts the repository. The important distinction is:
+
+- your Git remote is where your workstation pushes and fetches code; and
+- CodeRabbit needs an HTTPS-accessible GitLab web/API endpoint so it can receive events, read the MR, and post review results.
+
+Your Git remote may use SSH or HTTPS and may point to an internal hostname. That does not automatically make the GitLab web application reachable from CodeRabbit.
+
+### Choose the setup that matches your GitLab
+
+| Your GitLab setup | What you need | Typical experience |
+| --- | --- | --- |
+| GitLab.com | A GitLab.com project and the CodeRabbit GitLab integration | Simplest path; GitLab is already internet-accessible |
+| Self-managed GitLab with a public HTTPS URL | A stable hostname, valid TLS certificate, reachable GitLab web/API endpoints, and CodeRabbit onboarding | Similar to GitLab.com, but you own availability and access control |
+| Private self-managed GitLab exposed through a tunnel or reverse proxy | A controlled public HTTPS entry point, tunnel/proxy rules, and CodeRabbit-compatible webhook/API access | Useful for a home lab or private network; this is the approach used by the original author |
+| GitLab reachable only on a private network | A connectivity change | CodeRabbit cannot review it until the required web/API path is available |
+
+A Cloudflare Tunnel is one solution, not a requirement. Other organizations may use a reverse proxy, load balancer, VPN or private connector supported by their security model, or a public GitLab deployment. The design goal is the same: expose only the required integration surface, use HTTPS, authenticate it properly, and avoid opening more of GitLab than necessary.
+
+### The original author's example
+
+This lab was first tested against a self-managed GitLab on a private LAN. The Git remote used an internal hostname, while a Cloudflare Tunnel provided the public HTTPS path that CodeRabbit needed. Your setup may be different. Use the following diagram as a concept, not as a required topology:
 
 ```text
-git@gitlab.lab:ae35/ae35.git
+your workstation --SSH or HTTPS Git--> GitLab
+                                      ^
+                                      | HTTPS webhooks and API
+CodeRabbit cloud <--- public HTTPS endpoint
+                         ^
+                         |
+          tunnel, reverse proxy, load balancer, or GitLab.com
 ```
 
-Keep using that remote for clone, fetch, and push. The remote is for your workstation-to-GitLab traffic; it is not the address CodeRabbit uses to reach the server.
+Do not copy private hostnames, IP addresses, tunnel identifiers, access policies, OAuth secrets, or personal access tokens (PATs) into this repository or a public blog post.
 
-The expected integration path is:
+### Connectivity checklist
 
-```text
-workstation --SSH/Git--> gitlab.lab (LAN GitLab)
-                              ^
-                              | GitLab webhooks/API through public HTTPS
-CodeRabbit cloud <--- Cloudflare Tunnel / edge hostname
-```
+Before investigating review quality, prove the integration plumbing:
 
-The tunnel must expose the GitLab web/API endpoints CodeRabbit needs through a stable HTTPS hostname. Do not put tunnel IDs, API tokens, PATs, IP addresses, or Access bypass details in this repository or in a public blog draft. Record only whether the check passed and keep operational secrets in your existing local credential store.
+1. You can open the GitLab web interface for the project.
+2. The GitLab version and CodeRabbit integration requirements are compatible. Check the current [self-managed GitLab documentation](https://docs.coderabbit.ai/platforms/self-hosted-gitlab).
+3. The project is installed or connected in CodeRabbit.
+4. The CodeRabbit identity or integration has the project access it needs.
+5. The project's webhook page shows recent successful deliveries, if your onboarding uses project webhooks.
+6. The public HTTPS GitLab URL is reachable from outside your private network.
+7. Your edge controls allow the required CodeRabbit webhook/API traffic without exposing unrelated administrative services.
+8. Billing, usage, and rate limits are understood for the account you are using.
 
-### One-time setup checklist
-
-1. Confirm the checkout and remote:
-
-   ```bash
-   git remote -v
-   git status
-   ```
-
-2. In GitLab, create or select the project that will host this lab. This repository is already the project for the exercises; do not create a second project unless you want a clean trial.
-
-3. Add the CodeRabbit GitLab user to the project with the minimum role the current CodeRabbit onboarding requires. Confirm the account can read the repository and participate in MRs.
-
-4. Complete the CodeRabbit self-managed GitLab onboarding in the CodeRabbit UI. Use the public HTTPS hostname that fronts GitLab through the tunnel. Do not substitute `gitlab.lab` for that hostname: CodeRabbit's cloud cannot resolve your LAN-only name.
-
-5. Check the project's GitLab webhook page after installation. A successful recent delivery is more useful than assuming that the integration is installed.
-
-6. Check the tunnel and public GitLab URL from a network that is not your LAN. If the public URL cannot load the GitLab sign-in page, stop there and repair the tunnel/edge policy before debugging CodeRabbit.
-
-7. Review billing and usage settings before running many experiments. Do not assume that a trial, free tier, usage-based reviews, or rate limit is identical to the plan described in an older guide.
-
-### Credentials and safety
-
-- Use a dedicated GitLab identity or bot credential for the integration when possible.
-- Give tokens only the scopes and project access the current onboarding requires; record the scopes you chose in your private notes.
-- Never commit a PAT, OAuth secret, webhook secret, Cloudflare token, private key, or real customer data.
-- The sample changes are intentionally flawed. Do not run them against a real backup source, production database, or network service.
-- The repository already has pre-commit and `detect-secrets` hooks. Keep them enabled and do not bypass them with `--no-verify`.
+If the endpoint is not reachable from outside your network, fix that before changing code. A missing review caused by networking is not evidence that CodeRabbit misunderstood the code.
 
 ## Repository map
 
@@ -97,11 +166,20 @@ labs/patches/lab-01-planted-bugs.patch
 .coderabbit.yaml.example          starter configuration for Lab 4
 ```
 
-The `main` branch is intentionally safe. The first review challenge is a patch you apply on a temporary branch, so CodeRabbit sees the vulnerable edits in an MR while the repository's default branch remains usable. Read the answer key only after recording your own findings.
+The `main` branch is intentionally safe. The first review challenge is a patch you apply on a temporary branch, so CodeRabbit sees the unsafe edits in an MR while the default branch remains usable. Read the answer key only after recording your own findings.
 
 ## Start here: Lab 0, integration smoke test
 
-Before testing review quality, prove that the plumbing works.
+Before testing review quality, prove that the plumbing works. The commands below use GitLab terminology; on GitHub, opening an MR means opening a PR.
+
+First inspect the remote instead of assuming its hostname:
+
+```bash
+git remote -v
+git status
+```
+
+Then create a temporary branch and make a harmless documentation change:
 
 ```bash
 git switch main
@@ -116,7 +194,7 @@ git push -u origin lab0-smoke
 Open an MR from `lab0-smoke` into `main`. Confirm that:
 
 - GitLab accepts the push and creates the MR;
-- a webhook delivery appears in the project settings;
+- a webhook delivery appears in the project settings, when applicable;
 - CodeRabbit comments on the MR; and
 - the comment is from the expected CodeRabbit account.
 
@@ -137,12 +215,12 @@ git commit -m "test: add planted CodeRabbit review findings"
 git push -u origin lab1-planted-bugs
 ```
 
-Open an MR into `main`. Before reading `labs/answer-key.md`, record:
+Open an MR into `main`—a PR into the default branch in GitHub language. Before reading `labs/answer-key.md`, record:
 
 - time from push to first review;
 - number of walkthrough, actionable, and nitpick comments;
 - which shell and Python issues were found;
-- whether tool attribution appears (for example, ShellCheck or Ruff);
+- whether tool attribution appears, for example ShellCheck or Ruff;
 - whether the dangerous interaction between `cd`, `tar`, and `rm -rf` was explained;
 - whether the summary describes intent rather than only filenames; and
 - whether each proposed fix is correct, minimal, and applicable.
@@ -165,7 +243,7 @@ Disagree with one low-value suggestion using a real project preference, for exam
 @coderabbitai In this repo we use [[ ]] in Bash and require set -euo pipefail. Please remember this preference for future reviews.
 ```
 
-Check whether the reply reports a learning, then test that preference in a later MR. A chat reply is not proof that the learning was persisted; verify the learning in the CodeRabbit UI and observe a later review.
+Check whether the reply reports a learning, then test that preference in a later MR. A chat reply is not proof that the learning was persisted; verify the learning in the CodeRabbit interface and observe a later review. This is the same idea as teaching a code-review bot a repository convention, not training a new AI model yourself.
 
 ## Lab 3: incremental review controls
 
@@ -231,7 +309,9 @@ Enable warning-mode checks in a dedicated configuration MR. Test one failure at 
 
 Create a GitLab issue describing a small change, then open an MR that implements only half of it and includes an unrelated edit. Link the issue and evaluate whether CodeRabbit notices both the missing requirement and the out-of-scope change.
 
-## Lab 7: CI/CD analysis (optional)
+## Lab 7: CI/CD pipeline analysis (optional)
+
+Continuous integration and continuous delivery (CI/CD) means automated jobs build, test, scan, or deploy code. GitLab calls its automation a pipeline; GitHub users may know the same idea as a GitHub Actions workflow.
 
 If this GitLab has a runner, add a small `.gitlab-ci.yml` that runs ShellCheck and Python tests. Break one test on a branch and observe whether CodeRabbit incorporates the failed pipeline into its review. If there is no runner, document that this experiment is unavailable; do not install infrastructure solely to make the blog narrative look complete.
 
@@ -245,6 +325,8 @@ Do this only on a disposable branch and use fake values. Add, in one MR:
 
 Record which scanner or reasoning path identifies each issue. Remove the branch after the experiment. Do not put a real secret or a token-shaped test value in `main`, this README, or the answer key.
 
+Security findings may come from different layers: a secret scanner can recognize credential-like text, a static-analysis tool can recognize a dangerous API, and CodeRabbit's reasoning can connect the code to a broader exploit path. Record which layer found what. Do not treat the presence of a scanner label as proof that the explanation is correct.
+
 ## Lab 9: CLI review before push
 
 Install the CLI only after reading the current official instructions. Then compare local review modes with the MR review:
@@ -254,9 +336,10 @@ coderabbit auth login
 coderabbit review
 coderabbit review --uncommitted
 coderabbit review --committed
+coderabbit review --include-untracked
 ```
 
-The current CLI documentation distinguishes tracked changes from untracked files; use the documented include/uncommitted options for your installed version and record the version in your notes. Compare speed, findings, output format, and whether the CLI is useful as input to another coding agent.
+The current CLI documentation distinguishes tracked changes from untracked files; use the documented options for your installed version and record the version in your notes. Compare speed, findings, output format, and whether the CLI is useful as input to another coding agent.
 
 ## Lab 10: real-world trial
 
@@ -275,7 +358,7 @@ Keep one row per MR in a private notes file or spreadsheet. Suggested columns:
 | Field | What to record |
 | --- | --- |
 | Lab/MR | branch, MR number, commit, date |
-| Environment | GitLab version, CodeRabbit plan/workspace, CLI version |
+| Environment | GitLab hosting type, CodeRabbit plan/workspace, CLI version |
 | Timing | push time, first review time, follow-up time |
 | Findings | expected, found, missed, false positive |
 | Quality | severity accuracy, explanation, fix quality |
@@ -288,11 +371,11 @@ For each category, score 1–5: summary accuracy, bug finding, signal-to-noise, 
 
 ## Troubleshooting
 
-**No review appears:** confirm the MR targets the expected branch, CodeRabbit has project access, the webhook shows a recent successful delivery, the public HTTPS GitLab URL is reachable from outside the LAN, and the MR is not being skipped by draft/configuration rules.
+**No review appears:** confirm the MR targets the expected branch, CodeRabbit has project access, the webhook shows a recent successful delivery when applicable, the GitLab web/API endpoint is reachable from the internet, and the MR is not being skipped by draft or configuration rules.
 
-**CodeRabbit cannot reach GitLab:** test the public HTTPS hostname from a non-LAN network, then inspect the tunnel and edge policy on the GitLab host. Do not make the entire GitLab service public as a debugging shortcut.
+**CodeRabbit cannot reach self-managed GitLab:** test the public HTTPS hostname from a network outside the private network, then inspect the tunnel, reverse proxy, firewall, or load balancer. Do not make the entire GitLab service public as a debugging shortcut.
 
-**A command is ignored:** run the documented help/configuration command for the current integration and check the plan/workspace feature matrix. The original command list is a hypothesis, not a compatibility guarantee.
+**A command is ignored:** run the documented help/configuration command for the current integration and check the plan/workspace feature matrix. The command list in this guide is a learning checklist, not a compatibility guarantee.
 
 **Configuration is ignored:** verify the file name, YAML syntax, branch contents, indentation, and the effective configuration report. Test one setting at a time.
 
@@ -302,17 +385,18 @@ For each category, score 1–5: summary accuracy, bug finding, signal-to-noise, 
 
 ## Cleanup
 
-Close or delete disposable MRs and branches, remove fake credentials and vulnerable dependency experiments, revoke temporary tokens, and review the CodeRabbit project connection. If you are shutting down the lab, disable the project integration before stopping the tunnel, then confirm that no public GitLab hostname remains reachable unintentionally.
+Close or delete disposable MRs and branches, remove fake credentials and vulnerable dependency experiments, revoke temporary tokens, and review the CodeRabbit project connection. If you are shutting down a tunneled lab, disable the project integration before removing the public endpoint, then confirm that no GitLab hostname remains reachable unintentionally.
 
 ## Blog outline this repo supports
 
-1. Why pair CodeRabbit with a self-managed GitLab?
-2. The network boundary: LAN Git remote, public HTTPS webhook/API path, and tunnel controls.
-3. What an AI review catches in a controlled baseline.
-4. Teaching the reviewer with configuration, guidelines, and learnings.
-5. Incremental reviews and agentic finishing actions.
-6. Security, false positives, and why human approval still matters.
-7. CLI versus MR review.
-8. What changed after the trial: a measured recommendation, not a product brochure.
+1. Why pair CodeRabbit with GitLab?
+2. GitHub-to-GitLab translation: what changes and what stays familiar.
+3. How internet reachability affects CodeRabbit integrations.
+4. What an AI review catches in a controlled baseline.
+5. Teaching the reviewer with configuration, guidelines, and learnings.
+6. Incremental reviews and agentic finishing actions.
+7. Security, false positives, and why human approval still matters.
+8. CLI versus MR review.
+9. What changed after the trial: a measured recommendation, not a product brochure.
 
 Before publishing, remove internal hostnames, IPs, account names, webhook URLs, screenshots with identifiers, and all credentials. Link readers to the official CodeRabbit documentation rather than copying plan limits that may have changed.
