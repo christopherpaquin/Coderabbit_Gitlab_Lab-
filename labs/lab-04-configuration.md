@@ -2,6 +2,18 @@
 
 [← Lab 3](lab-03-incremental-reviews.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 5](lab-05-finishing-actions.md)
 
+## 4.0 Confirm the working repository
+
+Run every command below from the local clone of coderabbit-gitlab-lab-clone:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm that origin points to the GitLab working project.
+git remote -v
+~~~
+
 ## 4.1 Goal
 
 Test version-controlled review rules. You will add a CodeRabbit YAML configuration and a coding-guideline file in separate MRs so you can see which rule changes behavior.

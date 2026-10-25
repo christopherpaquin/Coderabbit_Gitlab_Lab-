@@ -2,6 +2,19 @@
 
 [← Lab 9](lab-09-cli.md) · [Lab index](README.md) · [Main README](../README.md)
 
+## 10.0 Choose the real-world repository
+
+This lab uses a separate non-sensitive real repository, not the canonical GitHub lab template or coderabbit-gitlab-lab-clone. Before continuing, clone or open the real repository you have chosen and confirm its remote. Replace the path and URL with that repository's values:
+
+~~~bash
+# Enter the separate real-world repository selected for this experiment.
+cd /path/to/your-real-repository
+
+# Confirm the current branch and remote before making a change.
+git status --short --branch
+git remote -v
+~~~
+
 ## 10.1 Goal
 
 Apply what you learned to a real but non-sensitive repository and decide whether CodeRabbit provides enough value for your workflow.

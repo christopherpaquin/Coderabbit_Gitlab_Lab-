@@ -2,6 +2,18 @@
 
 [← Lab 6](lab-06-pre-merge-and-issues.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 8](lab-08-security.md)
 
+## 7.0 Confirm the working repository
+
+Run the pipeline commands from the local clone of coderabbit-gitlab-lab-clone:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm the GitLab remote before creating a pipeline branch.
+git remote -v
+~~~
+
 ## 7.1 Goal
 
 See whether CodeRabbit uses failed automation results when explaining an MR. GitLab calls this automation a pipeline; GitHub users may know it as a GitHub Actions workflow.

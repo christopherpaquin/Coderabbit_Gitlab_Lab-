@@ -2,6 +2,19 @@
 
 [← Lab 8](lab-08-security.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 10](lab-10-real-world.md)
 
+## 9.0 Confirm the working repository
+
+The CLI must run inside the local clone of coderabbit-gitlab-lab-clone so it reviews the intended repository:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm the repository and GitLab remote.
+git status --short --branch
+git remote -v
+~~~
+
 ## 9.1 Goal
 
 Review local changes before they are pushed to GitLab. This lets you compare an early command-line interface (CLI) review with a later GitLab MR review.

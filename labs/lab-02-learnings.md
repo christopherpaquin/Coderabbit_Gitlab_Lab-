@@ -2,6 +2,18 @@
 
 [← Lab 1](lab-01-planted-bugs.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 3](lab-03-incremental-reviews.md)
 
+## 2.0 Confirm the working repository
+
+The browser work in this lab happens in the Lab 1 MR belonging to your GitLab project coderabbit-gitlab-lab-clone. If you use the terminal, enter the learner-owned clone:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm that origin is your GitLab working project.
+git remote -v
+~~~
+
 ## 2.1 Goal
 
 Learn how to ask CodeRabbit for explanations and test whether a stated preference becomes a stored learning.

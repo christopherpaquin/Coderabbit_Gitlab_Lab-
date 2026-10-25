@@ -2,6 +2,23 @@
 
 [← Lab 0](lab-00-smoke-test.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 2](lab-02-learnings.md)
 
+## 1.0 Confirm the working repository
+
+Run every command in this lab from your local learner-owned clone, not from the GitHub template. Replace the placeholder with the path where you cloned coderabbit-gitlab-lab-clone:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm the current branch and whether local files are changed.
+git status --short --branch
+
+# Confirm that origin points to your GitLab working project.
+git remote -v
+~~~
+
+The status should show a clean branch before you continue. If origin points to GitHub, stop and return to [Lab 0](lab-00-smoke-test.md).
+
 ## 1.1 Goal
 
 Create the control experiment for the course. You will apply a patch that introduces deliberately flawed Bash and Python code, push it to a new branch, and ask CodeRabbit to review the MR.

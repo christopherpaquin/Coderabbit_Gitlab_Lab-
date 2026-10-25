@@ -2,6 +2,19 @@
 
 [← Lab 4](lab-04-configuration.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 6](lab-06-pre-merge-and-issues.md)
 
+## 5.0 Confirm the working repository
+
+Use the Lab 1 MR in the GitLab project coderabbit-gitlab-lab-clone. For terminal commands, enter that local clone first:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm the branch and remote before making a disposable change.
+git status --short --branch
+git remote -v
+~~~
+
 ## 5.1 Goal
 
 Evaluate whether CodeRabbit can turn findings into useful work without creating new defects. These actions are optional and may depend on your plan or GitLab integration.

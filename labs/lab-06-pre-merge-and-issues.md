@@ -2,6 +2,19 @@
 
 [← Lab 5](lab-05-finishing-actions.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 7](lab-07-ci-analysis.md)
 
+## 6.0 Confirm the working repository
+
+Run every command in this lab from the local clone of coderabbit-gitlab-lab-clone:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm that the working tree and remote are what you expect.
+git status --short --branch
+git remote -v
+~~~
+
 ## 6.1 Goal
 
 Test quality gates and issue-to-MR reasoning. GitHub users can compare this with required checks and linked issues on a pull request.

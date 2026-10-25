@@ -2,6 +2,19 @@
 
 [← Lab 2](lab-02-learnings.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 4](lab-04-configuration.md)
 
+## 3.0 Confirm the working repository
+
+Run these commands from the local clone of coderabbit-gitlab-lab-clone. The GitHub template is not the review target:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm the branch and remote before changing anything.
+git status --short --branch
+git remote -v
+~~~
+
 ## 3.1 Goal
 
 See how CodeRabbit behaves when an existing MR receives new commits. Then test review-control commands and learn when to pause, resume, or request a full review.

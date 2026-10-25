@@ -47,3 +47,9 @@
 **Decision:** Construct the fake token prefix in the disposable sample instead of storing a token-shaped literal in tracked documentation.
 **Why:** The public lab should teach secret detection without committing a credential-like string that blocks repository hygiene hooks.
 **Progress:** in-progress; corrected pages are synchronized, commits and pushes remain.
+
+## 2026-10-25 13:06
+**Task:** Clarify the canonical GitHub template versus learner-owned GitLab working clone.
+**Decision:** Lab 0 now creates coderabbit-gitlab-lab-clone, installs CodeRabbit there, clones it locally, verifies the GitLab remote, and runs the smoke-test MR there. Every later lab has a working-directory preflight.
+**Why:** The public instructions must distinguish the GitHub source repository from the learner workspace where CodeRabbit experiments occur.
+**Progress:** in-progress; documentation synchronized, validation and commits remain.

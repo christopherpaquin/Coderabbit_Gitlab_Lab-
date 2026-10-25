@@ -2,6 +2,12 @@
 
 Return to the [main README](../README.md) at any time.
 
+## Which repository should you use?
+
+The GitHub repository named `Coderabbit_Gitlab_Lab` is the canonical template. Lab 0 guides you through creating a separate GitLab project named `coderabbit-gitlab-lab-clone`, installing CodeRabbit on that project, and cloning it locally.
+
+Run every later lab from the local directory named `coderabbit-gitlab-lab-clone`. Do not run the exercises from the GitHub template checkout.
+
 Each lab is a separate experiment. The numbered screenshot checkpoints are intentional: when you send a screenshot, identify it as something like “Lab 0, Screenshot 0.2” so it can be placed in the right section later.
 
 ## Choose a lab
@@ -22,11 +28,12 @@ Each lab is a separate experiment. The numbered screenshot checkpoints are inten
 
 ## How to use each page
 
-1. Read the goal and prerequisites.
-2. Complete the numbered setup steps exactly.
-3. Pause at each screenshot checkpoint and capture the requested screen.
-4. Record observations before reading the answer key or changing the branch.
-5. Complete cleanup before moving to the next lab.
+1. Confirm that your terminal is inside the local `coderabbit-gitlab-lab-clone` directory.
+2. Read the goal and prerequisites.
+3. Complete the numbered setup steps exactly.
+4. Pause at each screenshot checkpoint and capture the requested screen.
+5. Record observations before reading the answer key or changing the branch.
+6. Complete cleanup before moving to the next lab.
 
 ## Screenshot convention
 

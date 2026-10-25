@@ -2,6 +2,19 @@
 
 [← Lab 7](lab-07-ci-analysis.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 9](lab-09-cli.md)
 
+## 8.0 Confirm the working repository
+
+Run the security experiment only in the local clone of coderabbit-gitlab-lab-clone. Do not use the GitHub template checkout:
+
+~~~bash
+# Enter the learner-owned GitLab clone.
+cd /path/to/coderabbit-gitlab-lab-clone
+
+# Confirm the working tree and GitLab remote before creating the disposable branch.
+git status --short --branch
+git remote -v
+~~~
+
 ## 8.1 Goal
 
 Compare secret scanning, static analysis, dependency analysis, and CodeRabbit's reasoning on a disposable security MR.

@@ -9,14 +9,18 @@
 
 > A GitLab-first learning lab for GitHub users who want to understand CodeRabbit by testing it on purposefully reviewable changes.
 
-This repository is a hands-on course for learning GitLab workflow and CodeRabbit. It is written for people who know GitHub but are new to GitLab, and for anyone who wants to evaluate AI code review before trusting it on a real project.
+This repository is the canonical lab template. It is hosted on GitHub so readers can copy it into their own GitLab project, where CodeRabbit can review the exercises.
+
+It is written for people who know GitHub but are new to GitLab, and for anyone who wants to evaluate AI code review before trusting it on a real project.
+
+> **Important:** Do not run the labs from the GitHub template checkout. Lab 0 creates a separate learner-owned GitLab project named `coderabbit-gitlab-lab-clone`. All branches, merge requests, comments, learnings, and experiments happen in that working project.
 
 ## Start here
 
 1. Read the connectivity requirements and choose a GitLab setup.
 2. Review the GitHub-to-GitLab translation guide.
-3. Use the lab selector below or open the [lab index](labs/README.md).
-4. Work through Lab 0 before opening the planted-bug review in Lab 1.
+3. Complete [Lab 0](labs/lab-00-smoke-test.md) to create and verify your working GitLab project.
+4. Use the [lab index](labs/README.md) to continue through the experiments.
 5. Capture screenshots at the numbered checkpoints in each lab.
 
 ## At a glance
@@ -116,6 +120,17 @@ Before investigating review quality:
 8. Understand billing, usage, and rate limits for your account.
 
 Do not copy private hostnames, IP addresses, tunnel identifiers, access policies, OAuth secrets, or personal access tokens (PATs) into this repository or a public blog post.
+
+## Canonical template versus working clone
+
+There are two repositories in this course:
+
+| Repository | Purpose | Who owns the changes? |
+| --- | --- | --- |
+| `Coderabbit_Gitlab_Lab` on GitHub | Canonical instructions, clean samples, patches, and lab pages | The lab author and future contributors |
+| `coderabbit-gitlab-lab-clone` on your GitLab | Your CodeRabbit-connected working copy | You, the learner |
+
+The GitHub repository is updated when the lab itself changes. Your GitLab clone is where you create temporary branches, open merge requests, test CodeRabbit, and accumulate experiment evidence. Do not point CodeRabbit at the canonical GitHub template for this GitLab lab.
 
 ## Repository map
 
