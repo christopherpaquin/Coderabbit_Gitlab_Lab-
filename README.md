@@ -1,11 +1,46 @@
 # CodeRabbit + GitLab learning lab
 
+[![GitLab](https://img.shields.io/badge/GitLab-merge%20request%20lab-FC6D26?logo=gitlab&logoColor=white)](https://about.gitlab.com/)
+[![CodeRabbit](https://img.shields.io/badge/CodeRabbit-AI%20code%20review-6E56CF)](https://www.coderabbit.ai/)
+[![Bash](https://img.shields.io/badge/Bash-sample%20code-4EAA25?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Python](https://img.shields.io/badge/Python-sample%20code-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Pre--commit](https://img.shields.io/badge/pre--commit-hooks-FAB040?logo=pre-commit&logoColor=white)](https://pre-commit.com/)
+[![Markdown](https://img.shields.io/badge/docs-Markdown-000000?logo=markdown&logoColor=white)](https://www.markdownguide.org/)
+
+> A GitLab-first learning lab for GitHub users who want to understand CodeRabbit by testing it on purposefully reviewable changes.
+
 This repository is a hands-on course for learning two related skills:
 
 1. how GitLab organizes source code, branches, merge requests, issues, webhooks, and pipelines; and
 2. how CodeRabbit uses artificial intelligence (AI) to review code, explain risks, learn team preferences, and help with software-development tasks.
 
 The lab is written especially for people who are comfortable with GitHub but new to GitLab. It also gives you a controlled way to evaluate CodeRabbit before trusting it on a real project.
+
+## At a glance
+
+| | |
+| --- | --- |
+| **Audience** | GitHub users learning GitLab and CodeRabbit |
+| **Format** | Guided merge-request experiments with intentionally reviewable code |
+| **You will practice** | GitLab workflow, AI review, configuration, learnings, security review, and CLI review |
+| **Safety rule** | The planted-bug branch is for review only; never run it against real data |
+| **End product** | Your own measured recommendation and optional blog material |
+
+<details>
+<summary><strong>Contents</strong></summary>
+
+- [What you will learn](#what-you-will-learn)
+- [A GitHub user's translation guide](#a-github-users-translation-guide)
+- [What CodeRabbit does](#what-coderabbit-does)
+- [How CodeRabbit connects to GitLab](#how-coderabbit-connects-to-gitlab)
+- [Repository map](#repository-map)
+- [Labs 0–10](#start-here-lab-0-integration-smoke-test)
+- [Evaluation sheet](#evaluation-sheet)
+- [Troubleshooting](#troubleshooting)
+- [Cleanup](#cleanup)
+- [Blog outline](#blog-outline-this-repo-supports)
+
+</details>
 
 ## What you will learn
 
@@ -111,6 +146,8 @@ CodeRabbit is a cloud service, so it must be able to communicate with the GitLab
 
 Your Git remote may use SSH or HTTPS and may point to an internal hostname. That does not automatically make the GitLab web application reachable from CodeRabbit.
 
+> **Key idea:** your workstation can push successfully while CodeRabbit still cannot review the MR. Git transport and web/API reachability are separate paths.
+
 ### Choose the setup that matches your GitLab
 
 | Your GitLab setup | What you need | Typical experience |
@@ -203,6 +240,8 @@ Delete or close the smoke-test MR after recording the time from push to review. 
 ## Lab 1: baseline review with planted defects
 
 This is the control experiment. Apply the patch on a new branch; do not run the resulting files.
+
+> **Safety:** this branch exists to give CodeRabbit something interesting to review. Do not execute the planted shell script or connect the planted Python code to a real database.
 
 ```bash
 git switch main

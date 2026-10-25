@@ -23,3 +23,9 @@
 **Decision:** Keep the GitHub clone synchronized with the LAN checkout at the README level while retaining the GitHub remote for publication.
 **Why:** Readers should receive the same teaching material regardless of whether they start from the GitHub copy or the local GitLab copy.
 **Progress:** in-progress; README updated, validation and commit/push remain.
+
+## 2026-10-25 12:45
+**Task:** Improve README visual hierarchy and discoverability in the GitHub copy.
+**Decision:** Use compact factual badges, an at-a-glance table, collapsible contents, and focused callouts while preserving the teaching content.
+**Why:** A long lab guide should be easy to scan in both GitHub and GitLab interfaces without adding decorative or unsupported claims.
+**Progress:** in-progress; README updated, validation and commit/push remain.
