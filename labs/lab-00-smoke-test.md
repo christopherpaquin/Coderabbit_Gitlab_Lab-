@@ -269,6 +269,12 @@ In GitHub language, this is opening a PR from lab0-smoke into main.
 
 The button and page label may vary slightly by GitLab version, but in this environment the action is **Create merge request**. GitHub users can think of this as opening a pull request (PR).
 
+> Screenshot 0.9b — GitLab's **New merge request** page after selecting the source and target branches.
+
+![Screenshot 0.9b — GitLab New merge request page](../assets/screenshots/lab-00-09b-new-merge-request.png)
+
+GitLab uses both labels in this flow: **Create merge request** is the navigation action, while **New merge request** is the title of the page where you choose branches. Continue by selecting **Compare branches and continue**.
+
 ## 0.9 Verify CodeRabbit
 
 Wait a few minutes, then inspect the MR:
