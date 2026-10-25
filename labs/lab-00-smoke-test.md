@@ -127,15 +127,17 @@ For automated onboarding, follow the form to provide the one-time GitLab adminis
 
 For manual onboarding, the current CodeRabbit documentation requires a dedicated CodeRabbit GitLab user, that user's access token, and a GitLab OAuth application. The recommended OAuth scopes are api, read_user, and email/openid as shown by the current CodeRabbit form; the callback URL is https://app.coderabbit.ai/login. Do not put any token or client secret in this repository or in a screenshot.
 
-After the self-managed onboarding form succeeds:
+After the onboarding form succeeds, CodeRabbit may show the project as connected but uninstalled. Connected means CodeRabbit can see the project; installed means review automation is enabled for it.
 
-1. Open the CodeRabbit repository-installation screen.
-2. Select coderabbit-gitlab-lab-clone.
-3. Select **Install** or **Connect**.
-4. Return to the GitLab project.
-5. Open **Settings > Webhooks**, or the integration page used by your GitLab version.
-6. Confirm that a CodeRabbit webhook exists or that the CodeRabbit integration reports the project as connected.
-7. If the project is private, test https://gitlab.ae35.dev from a network outside your LAN.
+1. In CodeRabbit, select **Connected repositories** in the left navigation.
+2. Find coderabbit-gitlab-lab-clone in the repository table.
+3. Select the checkbox beside coderabbit-gitlab-lab-clone.
+4. Select **Sync Repositories** in the upper-right corner.
+5. Wait for the repository status to change from **Uninstalled** to **Installed**.
+6. Select **Reviews** on the installed repository to confirm that review settings are available.
+7. Return to the GitLab project and open **Settings > Webhooks**, or the integration page used by your GitLab version.
+8. Confirm that a CodeRabbit webhook exists or that the CodeRabbit integration reports the project as installed.
+9. If the project is private, test https://gitlab.ae35.dev from a network outside your LAN.
 
 For a self-managed installation, CodeRabbit must be able to reach the GitLab web/API endpoint over HTTPS. Your local Git remote can still use gitlab.lab over SSH; those are separate connections:
 
@@ -154,7 +156,11 @@ Do not use the GitHub URL as the CodeRabbit project URL. CodeRabbit must be conn
 
 This screen confirms that coderabbit-gitlab-lab-clone is already connected. The breadcrumb begins with **Connected repositories**, and the project is selected in the repository list. To add another project, select **Connected repositories** in the left navigation, then use the add or install control shown there. Do not look for the add-repository control inside Review settings; this page configures a repository after it has been connected.
 
-> Screenshot 0.5 — Self-managed GitLab onboarding form showing the instance URL, with tokens and secrets hidden.
+> Screenshot 0.5 — CodeRabbit Connected repositories showing coderabbit-gitlab-lab-clone as Uninstalled before synchronization.
+
+![Screenshot 0.5 — CodeRabbit repository uninstalled](../assets/screenshots/lab-00-05-repository-uninstalled.png)
+
+This is not the completed state. Select the repository checkbox and choose **Sync Repositories**. Lab 0 is complete only after the status reads **Installed**.
 
 > Screenshot 0.6 — GitLab project settings or webhook page showing the CodeRabbit connection.
 

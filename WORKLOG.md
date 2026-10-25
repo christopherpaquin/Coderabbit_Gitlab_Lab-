@@ -65,3 +65,6 @@
 
 ## 2026-10-25 19:14
 **Task:** Add Lab 0 screenshot 0.4 and clarify CodeRabbit repository installation versus review settings.\n**Decision:** Treat the supplied CodeRabbit Review settings screen as evidence that coderabbit-gitlab-lab-clone is already connected; direct learners to Connected repositories for adding projects and Review settings for configuring connected projects.\n**Why:** The screenshot shows the repository selected and the Connected repositories breadcrumb, but the previous lab wording did not distinguish installation from post-installation configuration.\n**Progress:** in-progress; screenshot and documentation synchronized, validation and commits remain.
+
+## 2026-10-25 19:15
+**Task:** Correct Lab 0 terminology and add the repository-installation step.\n**Decision:** Treat Connected repositories as access visibility, not installation. Lab 0 now requires selecting coderabbit-gitlab-lab-clone, choosing Sync Repositories, and waiting for Installed before continuing.\n**Why:** The supplied CodeRabbit screen showed the project as Uninstalled, proving that the previous documentation incorrectly treated repository visibility as review enablement.\n**Progress:** in-progress; screenshot 0.5 and corrected instructions synchronized, validation and commits remain.
