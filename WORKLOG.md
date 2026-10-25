@@ -56,3 +56,6 @@
 
 ## 2026-10-25 19:06
 **Task:** Clarify exactly where and how learners install CodeRabbit.\n**Decision:** Lab 0 now distinguishes the GitHub template, the GitLab working project, and the local clone; it gives separate GitLab.com and self-managed onboarding paths and uses the public HTTPS URL for CodeRabbit while retaining the LAN SSH remote for Git operations.\n**Why:** The previous instruction did not tell the learner which project to connect, which URL to enter, or how self-managed onboarding relates to the Git remote.\n**Progress:** in-progress; clarified Lab 0 synchronized, validation and commits remain.
+
+## 2026-10-25 19:08
+**Task:** Add the learner-provided Lab 0 screenshot at checkpoint 0.1.\n**Decision:** Store the GitLab Create blank project screenshot at assets/screenshots/lab-00-01-create-project.png and embed it directly below the 0.1 placeholder in Lab 0.\n**Why:** The image documents the exact project-creation screen and clarifies the blank-project path while leaving the import path available for readers using GitLab project import.\n**Progress:** in-progress; screenshot and documentation synchronized, validation and commits remain.

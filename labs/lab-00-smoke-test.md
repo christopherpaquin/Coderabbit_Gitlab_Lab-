@@ -49,7 +49,11 @@ Create an empty project named coderabbit-gitlab-lab-clone in GitLab:
 
 If your GitLab cannot import the GitHub repository directly, create an empty project with the same name and use the fallback in section 0.4.
 
-> Screenshot 0.1 — GitLab project creation or import form showing the new project name coderabbit-gitlab-lab-clone.
+> Screenshot 0.1 — GitLab **Create blank project** form showing the project name, namespace, visibility, and README initialization options.
+
+![Screenshot 0.1 — GitLab Create blank project form](../assets/screenshots/lab-00-01-create-project.png)
+
+This screenshot shows the blank-project path. If you are importing the GitHub template directly, the fields are similar but GitLab will show the repository-import options instead. For this lab, the resulting project must be named coderabbit-gitlab-lab-clone.
 
 > Screenshot 0.2 — The new GitLab project showing the imported README, labs directory, and samples directory.
 
