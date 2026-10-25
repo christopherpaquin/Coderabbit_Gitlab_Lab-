@@ -251,7 +251,7 @@ git push -u origin lab0-smoke
 
 1. Open the GitLab project coderabbit-gitlab-lab-clone.
 2. Select **Code > Merge requests** in the left navigation.
-3. Select **New merge request**.
+3. Select **Create merge request**.
 4. Set **Source branch** to lab0-smoke.
 5. Set **Target branch** to main.
 6. Select **Compare branches and continue**.
@@ -264,6 +264,10 @@ git push -u origin lab0-smoke
 In GitHub language, this is opening a PR from lab0-smoke into main.
 
 > Screenshot 0.9 — GitLab MR creation screen showing the project, source branch, target branch, title, and description.
+
+![Screenshot 0.9 — GitLab Create merge request screen](../assets/screenshots/lab-00-09-create-merge-request.png)
+
+The button and page label may vary slightly by GitLab version, but in this environment the action is **Create merge request**. GitHub users can think of this as opening a pull request (PR).
 
 ## 0.9 Verify CodeRabbit
 

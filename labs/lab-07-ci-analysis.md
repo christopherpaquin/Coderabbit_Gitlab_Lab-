@@ -68,7 +68,7 @@ git commit -m "test: add CodeRabbit CI analysis pipeline"
 git push -u origin lab7-ci
 ~~~
 
-Open an MR from lab7-ci into main using **Code > Merge requests > New merge request**.
+Open an MR from lab7-ci into main using **Code > Merge requests > Create merge request**.
 
 > Screenshot 7.2 — Pipeline jobs for the MR.
 
