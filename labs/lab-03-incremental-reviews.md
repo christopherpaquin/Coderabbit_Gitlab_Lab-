@@ -83,4 +83,3 @@ After each command:
 Leave the branch available for Labs 4 and 5, or close the MR after saving your notes.
 
 [← Lab 2](lab-02-learnings.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 4](lab-04-configuration.md)
-

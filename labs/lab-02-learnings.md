@@ -76,4 +76,3 @@ A reply agreeing with you is not proof that a learning was persisted. The later 
 Keep the learning for Lab 4 or delete it from the CodeRabbit Learnings page after recording the result.
 
 [← Lab 1](lab-01-planted-bugs.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 3](lab-03-incremental-reviews.md)
-

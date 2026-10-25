@@ -103,4 +103,3 @@ git push -u origin lab6-linked-issue
 Close the experimental MRs and issue, or leave them open as evidence. Delete disposable branches.
 
 [← Lab 5](lab-05-finishing-actions.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 7](lab-07-ci-analysis.md)
-

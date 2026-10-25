@@ -41,3 +41,9 @@
 **Decision:** Added copyable pre-merge configuration, a minimal GitLab CI pipeline, and a disposable security sample with exact commands.
 **Why:** The GitHub copy must let a learner follow each lab without guessing what file to create or what UI state to reach.
 **Progress:** in-progress; detailed pages synchronized, final validation and commit/push remain.
+
+## 2026-10-25 12:55
+**Task:** Resolve repository secret scanning on the new Lab 8 documentation in the GitHub copy.
+**Decision:** Construct the fake token prefix in the disposable sample instead of storing a token-shaped literal in tracked documentation.
+**Why:** The public lab should teach secret detection without committing a credential-like string that blocks repository hygiene hooks.
+**Progress:** in-progress; corrected pages are synchronized, commits and pushes remain.

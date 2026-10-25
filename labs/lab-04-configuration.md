@@ -97,4 +97,3 @@ Open an MR into main. In the description, state which rules the branch adds. Tes
 Do not merge experimental configuration unless you want it as the repository's policy. Close or delete the experimental branches after recording results.
 
 [← Lab 3](lab-03-incremental-reviews.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 5](lab-05-finishing-actions.md)
-

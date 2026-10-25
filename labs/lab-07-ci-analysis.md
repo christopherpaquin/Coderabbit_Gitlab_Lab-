@@ -81,4 +81,3 @@ Wait for the pipeline and CodeRabbit review. Record whether the walkthrough refe
 Close the MR and delete the branch. Remove the pipeline file if you do not want it in the default branch.
 
 [← Lab 6](lab-06-pre-merge-and-issues.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 8](lab-08-security.md)
-

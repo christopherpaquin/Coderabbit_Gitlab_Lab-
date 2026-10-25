@@ -72,4 +72,3 @@ Open an MR into main. Separately edit the same final README line on main through
 Do not merge generated code without review. Close disposable MRs and delete the conflict branch after recording the evidence.
 
 [← Lab 4](lab-04-configuration.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 6](lab-06-pre-merge-and-issues.md)
-

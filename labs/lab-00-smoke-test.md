@@ -99,4 +99,3 @@ git push origin --delete lab0-smoke
 ~~~
 
 [← Lab index](README.md) · [Main README](../README.md) · Next: [Lab 1](lab-01-planted-bugs.md)
-

@@ -39,4 +39,3 @@ When you provide that image, mention the lab and checkpoint number. The image ca
 ### Navigation
 
 [← Main README](../README.md) · Lab 0 → [Lab 1](lab-01-planted-bugs.md)
-

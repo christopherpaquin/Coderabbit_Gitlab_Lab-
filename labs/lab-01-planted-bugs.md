@@ -109,4 +109,3 @@ git branch -D lab1-planted-bugs
 If you delete the remote branch, recreate it by repeating section 1.3.
 
 [← Lab 0](lab-00-smoke-test.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 2](lab-02-learnings.md)
-

@@ -28,7 +28,7 @@ Add the following disposable files. The token is intentionally fake and the depe
 cat > security_demo.py <<'EOF'
 import subprocess
 
-DEMO_TOKEN = "glpat-EXAMPLE-NOT-A-CREDENTIAL"
+DEMO_TOKEN = "glpat-" + "EXAMPLE-NOT-A-CREDENTIAL"
 
 def run_user_command(user_input):
     return subprocess.call(user_input, shell=True)
@@ -87,4 +87,3 @@ git push origin --delete lab8-security
 ~~~
 
 [← Lab 7](lab-07-ci-analysis.md) · [Lab index](README.md) · [Main README](../README.md) · Next: [Lab 9](lab-09-cli.md)
-
